@@ -14,12 +14,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
 //        isCoreLibraryDesugaringEnabled = true
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+    kotlinOptions{
+        jvmTarget = "17"
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.6"
