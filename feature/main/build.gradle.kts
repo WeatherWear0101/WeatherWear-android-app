@@ -18,11 +18,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
 //        isCoreLibraryDesugaringEnabled = true
     }
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = "17"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.6"
+        kotlinCompilerExtensionVersion = "1.5.7"
     }
     buildFeatures {
         compose = true
@@ -33,7 +33,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.ui)
     implementation(project(":core:design-system"))
     implementation(project(":core:data:repository"))
     implementation(project(":core:domain:model"))
@@ -43,11 +42,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.ui.test.manifest)
     implementation(libs.hilt.android)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.junit.jupiter.engine)
+    debugImplementation(libs.androidx.ui.tooling.preview)
     kapt(libs.hilt.android.compiler)
 }
 
