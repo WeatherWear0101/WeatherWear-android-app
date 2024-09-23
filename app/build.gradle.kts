@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -42,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.6"
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
     packaging {
         resources {
@@ -62,11 +63,13 @@ dependencies {
     implementation(libs.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(project(":feature:main"))
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-}
+    implementation(libs.androidx.junit.ktx)
+    androidTestImplementation(libs.testng)
 
-kapt {
-    correctErrorTypes = true
+    // hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+
+    implementation(project(":feature:main"))
 }
