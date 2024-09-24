@@ -32,3 +32,8 @@ android {
     }
 }
 
+dependencies{
+    implementation(libs.androidx.junit.ktx)
+    implementation(libs.androidx.monitor)
+}
+
